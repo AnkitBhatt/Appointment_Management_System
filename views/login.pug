@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  if messages.error
+    p=messages.error
+  <form action="/login" method="post">
+    <div class="container">
+      h1 Login
+      <label for="email"><b>Email </b></label>
+      <input type="text" placeholder="Enter Email" id="email" name="email" required>
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </div>
+  </form>
+  <a class="button" href="/register">Register</a>

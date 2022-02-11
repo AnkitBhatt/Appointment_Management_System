@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  <form method="POST" action="/logout?_method=DELETE">
+    <button type="submit">Logout</button>
+  </form>
