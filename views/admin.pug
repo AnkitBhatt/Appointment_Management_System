@@ -1,0 +1,84 @@
+extends layout
+
+block content
+  <div class="container-row">
+    <div class="patients">
+      h2 Patients
+      table
+        - var flag = 1
+        each single_obj in Patients
+          if flag === 1
+            tr
+              each key in Object.keys(single_obj)
+                th=key
+          - flag = 0
+          tr
+            each key in Object.keys(single_obj)
+              td=single_obj[key]
+    </div>
+  
+    <div class="patients">  
+      h2 Doctors
+      table
+        - var flagD = 1
+        each singl_obj in Doctors
+          if flagD === 1
+            tr
+              each key in Object.keys(singl_obj)
+                th=key
+          - flagD = 0
+          tr
+            each key in Object.keys(singl_obj)
+              td=singl_obj[key]
+    </div>
+
+    <div class="create-appointment-form">
+      <div class="page-container">
+        if message
+          p=messages
+      </div>
+      <form action="/create-appointment" method="POST">
+        <div class="container">
+          h1 Create Appointmnet
+          <div class="patient-container">
+            <label><b>Patients</b>
+              select(name='dropDownPatients', id='dropDownPatients')
+                each pObj in Patients
+                  - var str = '' 
+                  - var idP = 0
+                  each key in Object.keys(pObj)
+                    if key === 'ID'
+                      - idP = pObj[key]
+                    - str = str + pObj[key] + '_'
+                  option(value=idP)=str
+            </label>
+          </div>
+          <div class="doctor-container">
+            <label><b>Doctors</b>
+              select(name='dropDownDoctors', id='dropDownDoctors')
+                each dObj in Doctors
+                  - var strD = '' 
+                  - var idD = 0
+                  each key in Object.keys(dObj)
+                    if key === 'ID'
+                      - idD = dObj[key]
+                    - strD = strD + dObj[key] + '_'
+                  option(value=idD)=strD
+            </label>
+          </div>
+          <div class="date-container">
+            <label><b>Appointment Start Date</b>
+              <input type="date" id="appointment_start_date" name="appointment_start_date" required>
+            </label>
+          </div>
+          <div class="time-container">
+            <label><b>Appointment Start Time</b>
+              <input type="time" step="3600000" id="appointment_start_time" name="appointment_start_time" required>
+            </label>
+          </div>
+          <button type="submit">Create</button>
+          p By Default Appoint will be for one hour only
+        </div>
+      </form>
+    </div>
+  </div>

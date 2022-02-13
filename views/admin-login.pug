@@ -2,20 +2,18 @@ extends layout
 
 block content
   <div class="page-container">
+    <a class="button" href="/login">Patient Login</a>
     <a class="button" href="/doctor-login">Doctor Login</a>
-    <a class="button" href="/admin-login">Admin Login</a>
     if messages.error
       p=messages.error
   </div>
-  <form action="/login" method="post">
+  <form action="/admin-login" method="post">
     <div class="container">
-      h1 Patient Login
+      h1 Admin Login
       <label for="email"><b>Email </b></label>
       <input type="text" placeholder="Enter Email" id="email" name="email" required>
       <label for="password"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" id="password" name="password" required>
       <button type="submit">Login</button>
-      p You can create your account from below as well 
-      <a class="button" href="/register">Register</a>
     </div>
   </form>

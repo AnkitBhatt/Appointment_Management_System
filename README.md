@@ -1,5 +1,14 @@
 # Appointment_Management_System
 
-This project was supposed to full fledge application where Doctors can see their appointments with patients and patients can see their appointments with respective doctor.
+This application runs for development or QA purpose 
+For the security purpose I have used passport.js passport local strategy for login and session management
+1. I have used POSTGRES database for crud operation.
+2. Please initialize project with npm install
 
-Due to time constraint I managed to create login with session.
+## Installation
+
+```bash
+$ npm install
+```
+
+3. Please use your own credentials in .env file. I have kept mine as of now as it is because it is not that confidential.
